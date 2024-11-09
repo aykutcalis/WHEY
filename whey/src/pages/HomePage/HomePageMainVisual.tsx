@@ -8,7 +8,7 @@ const FooterWrapper = styled.footer`
   background-color: rgba(34, 34, 34, 1);
   padding: 20px 0;
 `;
-console.log(a)
+
    
 
 
