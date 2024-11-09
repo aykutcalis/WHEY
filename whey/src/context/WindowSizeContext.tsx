@@ -8,7 +8,7 @@ export interface WindowSizeContextType {
 const WindowSizeContext = createContext<WindowSizeContextType | undefined>(undefined);
 
 interface WindowSizeProviderProps {
-  children: ReactNode;  // children tipini belirledik
+  children: ReactNode;  // children tipini belirledik 
 }
 
 export const WindowSizeProvider: React.FC<WindowSizeProviderProps> = ({ children }) => {

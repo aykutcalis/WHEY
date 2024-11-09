@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Navbar, Container, Nav, Form, FormControl, NavDropdown } from "react-bootstrap";
 import { BsCart, BsPerson, BsList } from "react-icons/bs";
-import logo from "../assets/logo.png";
+import logo from "../assets/images/logo.png";
 import { useWindowSize, WindowSizeContextType } from "../context/WindowSizeContext"; // useWindowSize hook'unu import edin
 
 const CustomNavbar: React.FC = () => {

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import logo from "../assets/logo-white.png"; 
+import logo from "../assets/images/logo-white.png"; 
 import { useWindowSize, WindowSizeContextType } from "../context/WindowSizeContext";
 
 const Footer: React.FC = () => {
