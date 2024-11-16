@@ -112,7 +112,7 @@ const CustomNavbar: React.FC = () => {
                   marginRight: "20px",
                   height: isTablet ? "38px" : "46px",
                   width: isTablet ? "110px" : "190px",
-                  padding: "4px 4px",
+                   padding:isTablet ? "4px 20px": "4px 40px",
                   borderRadius: "5px",
                   border: "2px solid rgba(145, 145, 145, 1)",
                 }}
@@ -126,22 +126,22 @@ const CustomNavbar: React.FC = () => {
               </NavDropdown>
 
               <Nav.Link
-                href="#cart"
-                style={{
-                  height: isTablet ? "38px" : "46px",
-                  width: isTablet ? "110px" : "190px",
-                  display: "inline-flex",
-                  alignItems: "center",
-                  padding: "6px 10px",
-                  borderRadius: "5px",
-                  backgroundColor: "rgba(145, 145, 145, 1)",
-                  color: "white",
-                  marginLeft: "5px",
-                }}
-              >
-                <BsCart size={isTablet ? 20 : 32} className="me-1" />
-                Sepet
-              </Nav.Link>
+  href="#cart"
+  style={{
+    height: isTablet ? "38px" : "46px",
+    width: isTablet ? "110px" : "190px",
+    display: "inline-flex",
+    alignItems: "center",
+    padding:isTablet ? "6px 20px": "6px 50px",  // Sağdaki boşluğu artırmak için paddingRight değeri artırıldı
+    borderRadius: "5px",
+    backgroundColor: "rgba(145, 145, 145, 1)",
+    color: "white",
+    marginLeft: "10px",  // Sağ tarafa kaydırma için marginLeft ekleyebilirsiniz
+  }}
+>
+  <BsCart size={isTablet ? 20 : 32} className="me-1" />
+  Sepet
+</Nav.Link>
             </div>
           )}
           
@@ -152,7 +152,42 @@ const CustomNavbar: React.FC = () => {
           )}
         </Container>
       </Navbar>
-
+      {!isMobile &&  (
+        <div
+          style={{
+            
+            width: "100%",
+            backgroundColor: "black",
+            color: "white",
+          
+            display: "flex",
+            justifyContent: "space-evenly",
+            flexDirection: "row",
+            alignItems: "center",
+            padding: "10px",
+          }}
+        >
+          <Nav.Link href="#protein" style={{ color: "white", padding: "10px 0" }}>
+            PROTEİN
+          </Nav.Link>
+          <Nav.Link href="#spor-gıdalar" style={{ color: "white", padding: "10px 0" }}>
+            SPOR GIDALARI
+          </Nav.Link>
+          <Nav.Link href="#saglik" style={{ color: "white", padding: "10px 0" }}>
+            SAĞLIK
+          </Nav.Link>
+          <Nav.Link href="#gida" style={{ color: "white", padding: "10px 0" }}>
+            GIDA
+          </Nav.Link>
+          <Nav.Link href="#vitamin" style={{ color: "white", padding: "10px 0" }}>
+            VİTAMİN
+          </Nav.Link>
+          <Nav.Link href="#tum-urunler" style={{ color: "white", padding: "10px 0" }}>
+            TÜM ÜRÜNLER
+          </Nav.Link>
+          
+        </div>
+      )}
       {/* Hamburger Menü */}
       {isMobile && isMenuOpen && (
         <div

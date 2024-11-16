@@ -18,7 +18,7 @@ export const WindowSizeProvider: React.FC<WindowSizeProviderProps> = ({ children
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
-      setIsMobile(width <= 390);
+      setIsMobile(width <= 450);
       setIsTablet(width > 390 && width <= 768);
     };
 
