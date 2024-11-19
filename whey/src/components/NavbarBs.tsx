@@ -51,7 +51,7 @@ const CustomNavbar: React.FC = () => {
           )}
 
           {/* Logo */}
-          <Navbar.Brand href="#home" className="d-flex align-items-center" style={{ flexGrow: 1, justifyContent: "center" }}>
+          <Navbar.Brand href="/" className="d-flex align-items-center" style={{ flexGrow: 1, justifyContent: "center" }}>
             <img
               src={logo}
               alt="Logo"
@@ -167,22 +167,22 @@ const CustomNavbar: React.FC = () => {
             padding: "10px",
           }}
         >
-          <Nav.Link href="#protein" style={{ color: "white", padding: "10px 0" }}>
+          <Nav.Link href="/products/protein" style={{ color: "white", padding: "10px 0" }}>
             PROTEİN
           </Nav.Link>
-          <Nav.Link href="#spor-gıdalar" style={{ color: "white", padding: "10px 0" }}>
+          <Nav.Link href="/products/spor-gıdalar" style={{ color: "white", padding: "10px 0" }}>
             SPOR GIDALARI
           </Nav.Link>
-          <Nav.Link href="#saglik" style={{ color: "white", padding: "10px 0" }}>
+          <Nav.Link href="/products/saglik" style={{ color: "white", padding: "10px 0" }}>
             SAĞLIK
           </Nav.Link>
-          <Nav.Link href="#gida" style={{ color: "white", padding: "10px 0" }}>
+          <Nav.Link href="/products/gida" style={{ color: "white", padding: "10px 0" }}>
             GIDA
           </Nav.Link>
-          <Nav.Link href="#vitamin" style={{ color: "white", padding: "10px 0" }}>
+          <Nav.Link href="/products/vitamin" style={{ color: "white", padding: "10px 0" }}>
             VİTAMİN
           </Nav.Link>
-          <Nav.Link href="#tum-urunler" style={{ color: "white", padding: "10px 0" }}>
+          <Nav.Link href="/products/tum-urunler" style={{ color: "white", padding: "10px 0" }}>
             TÜM ÜRÜNLER
           </Nav.Link>
           
@@ -205,31 +205,31 @@ const CustomNavbar: React.FC = () => {
             padding: "10px",
           }}
         >
-          <Nav.Link href="#protein" style={{ color: "white", padding: "10px 0" }}>
+          <Nav.Link href="/products/protein" style={{ color: "white", padding: "10px 0" }}>
             PROTEİN
           </Nav.Link>
-          <Nav.Link href="#spor-gıdalar" style={{ color: "white", padding: "10px 0" }}>
+          <Nav.Link href="/products/spor-gıdalar" style={{ color: "white", padding: "10px 0" }}>
             SPOR GIDALARI
           </Nav.Link>
-          <Nav.Link href="#saglik" style={{ color: "white", padding: "10px 0" }}>
+          <Nav.Link href="/products/saglik" style={{ color: "white", padding: "10px 0" }}>
             SAĞLIK
           </Nav.Link>
-          <Nav.Link href="#gida" style={{ color: "white", padding: "10px 0" }}>
+          <Nav.Link href="/products/gida" style={{ color: "white", padding: "10px 0" }}>
             GIDA
           </Nav.Link>
-          <Nav.Link href="#vitamin" style={{ color: "white", padding: "10px 0" }}>
+          <Nav.Link href="/products/vitamin" style={{ color: "white", padding: "10px 0" }}>
             VİTAMİN
           </Nav.Link>
-          <Nav.Link href="#tum-urunler" style={{ color: "white", padding: "10px 0" }}>
+          <Nav.Link href="/products/tum-urunler" style={{ color: "white", padding: "10px 0" }}>
             TÜM ÜRÜNLER
           </Nav.Link>
-          <Nav.Link href="#profile" style={{ color: "white", padding: "10px 0" }}>
+          <Nav.Link href="/products/profile" style={{ color: "white", padding: "10px 0" }}>
             Hesabım
           </Nav.Link>
-          <Nav.Link href="#settings" style={{ color: "white", padding: "10px 0" }}>
+          <Nav.Link href="/products/settings" style={{ color: "white", padding: "10px 0" }}>
             Müşteri Yorumları
           </Nav.Link>
-          <Nav.Link href="#contact" style={{ color: "white", padding: "10px 0" }}>
+          <Nav.Link href="/products/contact" style={{ color: "white", padding: "10px 0" }}>
             İletişim
           </Nav.Link>
         </div>

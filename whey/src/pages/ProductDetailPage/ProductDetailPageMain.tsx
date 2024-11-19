@@ -1,23 +1,19 @@
-// src/pages/ProductDetailPage/ProductDetailPageMain.tsx
-import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import React from "react";
+import ProductDetail from "./sections/ProductDetail";
 
-function ProductDetailPageMain() {
-  const product = useLoaderData();  // Loader'dan gelen ürün verisini alıyoruz
 
-  if (!product) {
-    return <div>Product not found.</div>;  // Ürün verisi yoksa bir hata mesajı
-  }
+
+
+
+const ProductDetailPageMain: React.FC = () => {
+
 
   return (
-    <div>
-      <h1>{product.name}</h1>
-      <img src={product.imageUrl} alt={product.name} />
-      <div>{product.description}</div>
-      <div><strong>Price:</strong> ${product.price}</div>
-      {/* Diğer ürün bilgilerini buraya ekleyebilirsiniz */}
-    </div>
+    <>
+    <ProductDetail/>
+    sdzfg
+    </>
   );
-}
+};
 
 export default ProductDetailPageMain;

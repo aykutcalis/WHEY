@@ -1,3 +1,4 @@
+import BestSellerCards from "../../components/BestSellerCards"
 import HomePageCards from "./sections/HomePageCards"
 import HomePageCustomerSComments from "./sections/HomePageCustomerSComments"
 import HomePageInfo from "./sections/HomePageInfo"
@@ -11,6 +12,7 @@ function HomePageMain() {
    <>
    <HomePageNutritionImage/>
    <HomePageCards/>
+   <BestSellerCards/>
    <HomePageIntroSection/>
    <HomePageCustomerSComments/>
    <HomePageInfo/>

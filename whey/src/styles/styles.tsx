@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Card } from 'react-bootstrap';
 
 export const DiscountBox = styled.div`
-z-index:1;
+  z-index: 1;
   position: absolute;
   top: 10px;
   right: 10px;
@@ -19,17 +19,18 @@ export const CardTitleAndButtonContainer = styled.div`
   flex-direction: column;
   align-items: end;
   justify-content: center;
-  margin-top: 10px;  // Başlık ve buton arasına biraz boşluk ekliyoruz
-  text-align: center; // Başlık ve butonun ortalanmasını sağlıyoruz
+  margin-top: 10px;
+  text-align: center;
 
   @media (max-width: 768px) {
-    margin-top: 10px;  // Tablet boyutunda biraz boşluk ekleyelim
+    margin-top: 10px;
   }
 
   @media (max-width: 390px) {
-    margin-top: 5px;  // Mobilde daha az boşluk bırakıyoruz
+    margin-top: 5px;
   }
 `;
+
 export const StyledCardBody = styled(Card.Body)`
   max-width: 70%;
   position: absolute;
@@ -39,13 +40,11 @@ export const StyledCardBody = styled(Card.Body)`
   text-align: right;
 
   @media (max-width: 768px) {
-    height: auto;  // Tablet boyutunda yükseklik otomatik ayarlanabilir
+    height: auto;
   }
 
   @media (max-width: 390px) {
-    
     max-width: 70%;
-   
   }
 `;
 
@@ -55,26 +54,28 @@ export const TopStyledCard = styled(Card)<{ bgColor: string }>`
   height: 157px;
   position: relative;
   background-color: ${({ bgColor }) => bgColor};
+  border: none;  /* Border kaldırıldı */
 
   @media (max-width: 768px) {
-    width: 233.39px;  // Tablet boyutunda width
-    height: 127.23px; // Tablet boyutunda height
+    width: 233.39px;
+    height: 127.23px;
   }
 
   @media (max-width: 390px) {
-    width: 176.11px;  // Mobil boyutunda width
-    height: 96.01px;  // Mobil boyutunda height
+    width: 176.11px;
+    height: 96.01px;
   }
 `;
+
 export const StyledCardImgTop = styled(Card.Img)<{ imgTitle: string }>`
-  width: 100%;  // Görsel genişliğini %80 olarak ayarlıyoruz
-  height: 100%; // Yükseklik otomatik ayarlanacak, orantılı kalacak
+  width: 100%;
+  height: 100%;
 
   ${({ imgTitle }) =>
     imgTitle === 'TÜM ÜRÜNLER'
       ? `
-      width: 45%;  // Resmi küçültüyoruz
-      height: auto;  // Yüksekliği orantılı olarak ayarlıyoruz
+      width: 45%;
+      height: auto;
       transform: translateX(10px) translateY(0%);
     `
       : `
@@ -86,12 +87,15 @@ export const BottomStyledCard = styled(Card)`
   width: 200px;
   height: 365px;
   position: relative;
-  margin-bottom: 20px;  // PC için 20px
+  margin-bottom: 20px;
+  border: none;  /* Border kaldırıldı */
+
   @media (max-width: 768px) {
-    margin-bottom: 10px;  // Tablet için 10px
+    margin-bottom: 10px;
   }
+
   @media (max-width: 390px) {
-    margin-bottom: 5px;  // Mobil için 5px
+    margin-bottom: 5px;
   }
 `;
 
@@ -104,7 +108,7 @@ export const StyledCardImgBottom = styled(Card.Img)`
 `;
 
 export const ContentTitle = styled.div`
-margin:0px 10px;
+  margin: 0px 10px;
   font-family: Inter, sans-serif;
   font-size: 15.33px;
   font-weight: 600;
@@ -114,7 +118,7 @@ margin:0px 10px;
 `;
 
 export const ContentDescription = styled.div`
-margin:0px 20px;
+  margin: 0px 20px;
   font-family: Inter, sans-serif;
   font-size: 12px;
   line-height: 16px;
@@ -137,15 +141,31 @@ export const Comments = styled.div`
 `;
 
 export const Price = styled.div`
-  font-family: Inter, sans-serif;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: bold;
+  color: #000;
   text-align: center;
-  margin-top: 5px;
-  color: #333;
+
+  @media (max-width: 992px) {
+    font-size: 18px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
+
+  .original-price {
+    font-size: 16px;
+    text-decoration: line-through;
+    color: red;
+  }
+
+  .discounted {
+    font-size: 20px;
+    font-weight: bold;
+  }
 `;
 
-// Başlık için stil ekleyelim
 export const CardTitle = styled.div`
   font-family: Inter, sans-serif;
   font-size: 18px;
