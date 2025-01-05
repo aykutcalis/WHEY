@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData } from 'react-router-dom';
 import {
   Container,
   LeftSection,
@@ -17,10 +17,10 @@ import {
   IconLabel,
   IconDiv,
   SizesBox,
-   
 } from '../styles/styles';
 import { useWindowSize } from '../../../context/WindowSizeContext';
 import 'font-awesome/css/font-awesome.min.css';
+
 interface ProductDetail {
   id: string;
   name: string;
@@ -32,7 +32,7 @@ interface ProductDetail {
     description: string;
     nutritional_content: {
       ingredients: { aroma: string | null; value: string }[];
-      nutrition_facts: { ingredients: { name: string; amounts: string[] }[]; portion_sizes: string[]; };
+      nutrition_facts: { ingredients: { name: string; amounts: string[] }[]; portion_sizes: string[] };
       amino_acid_facts: null;
     };
   };
@@ -48,17 +48,18 @@ interface ProductDetail {
 }
 
 function ProductDetail() {
-  const product = useLoaderData() as ProductDetail;
+  // Loader'dan sadece productDetail verisini alıyoruz
+  const { productDetail } = useLoaderData<{ productDetail: ProductDetail }>();
   const [activePanel, setActivePanel] = useState<string | null>(null);
-  const [quantity, setQuantity] = useState(1); // Ürün adedini tutacak state
-  const { isMobile, isTablet } = useWindowSize();
+  const [quantity, setQuantity] = useState(1);
+  const { isMobile } = useWindowSize();
 
   const togglePanel = (panel: string) => {
     setActivePanel((prev) => (prev === panel ? null : panel));
   };
 
   const BASE_URL = "https://fe1111.projects.academy.onlyjs.com";
-  const imageUrl = `${BASE_URL}${product.variants[0].photo_src}`;
+  const imageUrl = `${BASE_URL}${productDetail.variants[0].photo_src}`;
 
   const handleIncrease = () => setQuantity(quantity + 1);
   const handleDecrease = () => setQuantity(quantity > 1 ? quantity - 1 : 1);
@@ -66,12 +67,11 @@ function ProductDetail() {
   return (
     <Container>
       <LeftSection>
-        <ProductImage src={imageUrl} alt={product.name} />
-        
+        <ProductImage src={imageUrl} alt={productDetail.name} />
       </LeftSection>
       <RightSection>
-        <h1>{product.name}</h1>
-        <p>{product.short_explanation}</p>
+        <h1>{productDetail.name}</h1>
+        <p>{productDetail.short_explanation}</p>
         <Ratings>
           <span>⭐⭐⭐⭐⭐</span>
           <span>123 yorum</span>
@@ -80,47 +80,47 @@ function ProductDetail() {
         <Aromas>
           <h3>Aroma Seçenekleri</h3>
           <ul>
-            {product.variants.map((variant) => (
+            {productDetail.variants.map((variant) => (
               <li key={variant.id}>{variant.aroma}</li>
             ))}
           </ul>
         </Aromas>
         <h3>Boyutlar</h3>
-        <Sizes style={{ marginBottom:'30px',gap:'30px',display:'flex', flexDirection:'row'}}>
-         
-          {product.variants.map((variant) => (
-            <SizesBox key={variant.id}   >
-              <div style={{ fontSize:'14px',fontWeight: 'bold'}} >
-                {variant.size.pieces} Adet - {variant.size.total_services} Porsiyon 
+        <Sizes style={{ marginBottom: '30px', gap: '20px', display: 'flex', flexDirection: 'row' }}>
+          {productDetail.variants.map((variant) => (
+            <SizesBox key={variant.id}>
+              <div style={{ fontSize: '14px', fontWeight: 'bold' }}>
+                {variant.size.pieces} Adet - {variant.size.total_services} Porsiyon
               </div>
-             
             </SizesBox>
           ))}
         </Sizes>
 
-        <div style={{ fontSize: '24px' ,display:'flex', flexDirection:'row'}}>
+        <div style={{ fontSize: '24px', display: 'flex', flexDirection: 'row' }}>
           <QuantityControl>
-            
             <button onClick={handleDecrease}>-</button>
             <span>{quantity}</span>
             <button onClick={handleIncrease}>+</button>
           </QuantityControl>
-          <AddToCartButton><i className="fa fa-shopping-cart" style={{ fontSize: '24px', color: 'white' }}></i>SEPETE EKLE</AddToCartButton>
+          <AddToCartButton>
+            <i className="fa fa-shopping-cart" style={{ fontSize: '24px', color: 'white' }}></i> SEPETE EKLE
+          </AddToCartButton>
         </div>
+
         <IconDiv>
-  <IconLabel>
-    <i className="fa fa-truck" style={{ fontSize: '24px', color: '#000' }}></i>
-    <span>Aynı gün ücretsiz kargo</span>
-  </IconLabel>
-  <IconLabel>
-    <i className="fa fa-check" style={{ fontSize: '24px', color: '#000', marginRight: '5px' }}></i>
-    <span>750.000+ mutlu müşteri</span>
-  </IconLabel>
-  <IconLabel>
-    <i className="fa fa-thumbs-up" style={{ fontSize: '24px', color: '#000', marginRight: '5px' }}></i>
-    <span>Memnuniyet Garantisi</span>
-  </IconLabel>
-</IconDiv>
+          <IconLabel>
+            <i className="fa fa-truck" style={{ fontSize: '24px', color: '#000' }}></i>
+            <span>Aynı gün ücretsiz kargo</span>
+          </IconLabel>
+          <IconLabel>
+            <i className="fa fa-check" style={{ fontSize: '24px', color: '#000', marginRight: '5px' }}></i>
+            <span>750.000+ mutlu müşteri</span>
+          </IconLabel>
+          <IconLabel>
+            <i className="fa fa-thumbs-up" style={{ fontSize: '24px', color: '#000', marginRight: '5px' }}></i>
+            <span>Memnuniyet Garantisi</span>
+          </IconLabel>
+        </IconDiv>
 
         {!isMobile && (
           <Panels>
@@ -132,7 +132,7 @@ function ProductDetail() {
                 ÖZELLİKLER
                 <PanelArrow className={activePanel === 'features' ? 'active' : ''} />
               </PanelButton>
-              {activePanel === 'features' && <PanelContent>{product.explanation.features}</PanelContent>}
+              {activePanel === 'features' && <PanelContent>{productDetail.explanation.features}</PanelContent>}
             </div>
 
             <div>
@@ -146,7 +146,7 @@ function ProductDetail() {
               {activePanel === 'nutrition' && (
                 <PanelContent>
                   <ul>
-                    {product.explanation.nutritional_content.ingredients.map((item, index) => (
+                    {productDetail.explanation.nutritional_content.ingredients.map((item, index) => (
                       <li key={index}>
                         {item.aroma}: {item.value}
                       </li>
@@ -164,7 +164,7 @@ function ProductDetail() {
                 KULLANIM ŞEKLİ
                 <PanelArrow className={activePanel === 'features' ? 'active' : ''} />
               </PanelButton>
-              {activePanel === 'usage' && <PanelContent>{product.explanation.usage}</PanelContent>}
+              {activePanel === 'usage' && <PanelContent>{productDetail.explanation.usage}</PanelContent>}
             </div>
           </Panels>
         )}

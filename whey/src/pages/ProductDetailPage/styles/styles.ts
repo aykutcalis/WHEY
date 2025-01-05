@@ -124,29 +124,50 @@ flex-direction:row;
 
 
 export const QuantityControl = styled.div`
-width: 122.08px;
-height: 56px;
-
-left: 1071.66px;
-
-display: flex;
- align-items: space-between;
+margin-right:20px;
+  display: flex;
+  align-items: center;
+  border: 2px solid #ddd; /* Dış çerçeve */
+  border-radius: 5px; /* Köşeleri yuvarla */
+  overflow: hidden; /* İçerik taşmasını engelle */
+  height: auto; /* Sabit yükseklik */
+width:120px;  
   button {
- height:100%;
- 
-    background: #f1f1f1;
-
-   
+  display:flex;
+  align-items:center;
+  justify-content:center;
+   height:100%;
+   width:25%;  
+    border: none; /* Dış kenarlıkları kaldır */
+    padding: 10px 15px; /* Butonların boyutunu ayarla */
     cursor: pointer;
-  }
-  span {
-    margin: 0 10px;
-    height:98%;
-    display:flex;
+    font-size: 18px;
+    font-weight: bold;
 
-   align-items:center;
+    /* Butonlar arasına çizgi ekle */
+    &:first-of-type {
+       border-right: 2px solid #ddd; /* Eksiltme butonunun sağ kenar çizgisi */
+    }
+    &:last-of-type {
+       border-left: 2px solid #ddd;
+    }
+
+    &:hover {
+      background-color: #e0e0e0; /* Hover sırasında daha koyu gri */
+    }
+  }
+
+  span {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:100%;
+  width:100px;
+    font-size: 18px; /* Yazı boyutu */
+    font-weight: bold;
   }
 `;
+
 
 export const IconLabel = styled.div`
 font-family: Inter;
@@ -188,7 +209,7 @@ height: 55px;
   
   padding: 11.5px 92.75px 11.5px 92.96px;
   gap: 0px;
-  border-radius: 4px 0px 0px 0px;
+  border-radius: 4px ;
   opacity: 1;
   background-color: black;
   color: white;

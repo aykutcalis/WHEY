@@ -1,8 +1,9 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { useLoaderData } from 'react-router-dom';
-import { BottomStyledCard, StyledCardImgBottom, ContentTitle, ContentDescription, RatingStars, Comments, Price, DiscountBox } from '../styles/styles';
+import ProductCard from './ProductCard';
 
+// Ürün veri tipi
 interface Product {
   name: string;
   short_explanation: string;
@@ -16,7 +17,7 @@ interface Product {
 }
 
 const BestSellerCards: React.FC = () => {
-  const products = useLoaderData() as Product[];
+  const { bestSellers } = useLoaderData() as { bestSellers: Product[] };
 
   return (
     <Container>
@@ -27,34 +28,9 @@ const BestSellerCards: React.FC = () => {
       </Row>
 
       <Row className="mb-4" style={{ marginTop: '10px' }}>
-        {products.map((product, index) => (
+        {bestSellers.map((product, index) => (
           <Col key={index} lg={2} md={4} sm={6} xs={6} className="mb-3">
-            <BottomStyledCard>
-              {product.price_info.discount_percentage && (
-                <DiscountBox>%{product.price_info.discount_percentage} İNDİRİM</DiscountBox>
-              )}
-              {/* Resmi doğru URL ile gösteriyoruz */}
-              <StyledCardImgBottom variant="top" src={product.photo_src} alt={product.name} />
-              <ContentTitle>{product.name}</ContentTitle>
-              <ContentDescription>{product.short_explanation}</ContentDescription>
-              <RatingStars>★★★★★</RatingStars>
-              <Comments>{product.comment_count} YORUM</Comments>
-              <Price>
-                {product.price_info.discounted_price ? (
-                  <>
-                   <span className="discounted">
-                      {product.price_info.discounted_price} TL
-                    </span>
-                    <span className="original-price">
-                      {product.price_info.total_price} TL
-                    </span>
-                   
-                  </>
-                ) : (
-                  `${product.price_info.total_price} TL`
-                )}
-              </Price>
-            </BottomStyledCard>
+            <ProductCard product={product} />
           </Col>
         ))}
       </Row>

@@ -11,10 +11,9 @@ import AboutUsPageMain from "../pages/AboutUsPage/AboutUsPageMain";
 import MyAddressesPageMain from "../pages/MyAddressesPage/MyAddressesPageMain";
 import MyOrdersPageMain from "../pages/MyOrdersPage/MyOrdersPageMain";
 import ProductListPageMain from "../pages/ProductListPage/ProductListPageMain";
-import { accountInfoLoader } from "../Loaders/AccountInfoLoader";
 import { fetchProteinProducts } from "../Loaders/ProteinLoader"; // Örnek bir loader
-import { productDetailLoader } from "../Loaders/ProductDetailLoader";
-import { productLoader } from "../Loaders/BestSellerLoader";
+import { productLoader } from "../Loaders/ProductsLoader";
+import ContactUsPageMain from "../pages/ContactPage/ContactPageMain";
 // import { productDetailLoader } from "../Loaders/ProductDetailLoader";
 
 export const route = createBrowserRouter([
@@ -27,7 +26,7 @@ export const route = createBrowserRouter([
         element: <HomePageMain />,
         loader: productLoader,
       },
-      {
+   {
         path: "products/:categoryName", 
         element: <ProductListPageMain />,
         loader: async ({ params }) => {
@@ -43,7 +42,7 @@ export const route = createBrowserRouter([
       {
         path: "/products/hyaluronic-acid",
         element: <ProductDetailPageMain />,
-        loader: productDetailLoader,
+        loader: productLoader,
         errorElement: <div>Ürün bulunamadı veya bir hata oluştu.</div>,
       },
        
@@ -52,7 +51,11 @@ export const route = createBrowserRouter([
         element: <CartPageMain />,
       },
       {
-        path: "faq",
+        path: "iletisim",
+        element: <ContactUsPageMain />,
+      },
+      {
+        path: "/sikca-sorulan-sorular",
         element: <FAQPageMain />,
       },
       {
@@ -66,7 +69,7 @@ export const route = createBrowserRouter([
       {
         path: "account",
         element: <AccountInfoPageMain />,
-        loader: accountInfoLoader,
+       
       },
       {
         path: "about",

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useLoaderData, Link } from "react-router-dom"; // Link'i import ediyoruz
+
 import { Container, Row, Col } from "react-bootstrap";
 import {
   BottomStyledCard,
@@ -41,7 +42,7 @@ const ProteinPage: React.FC = () => {
     <Container>
       <Row className="mt-4">
         <Col>
-          <h2 style={{ textAlign: "center", fontSize: "24px" }}>PROTEİN</h2>
+          <h2 style={{ textAlign: "center", fontSize: "24px" }}>TÜM ÜRÜNLER</h2>
         </Col>
       </Row>
 
